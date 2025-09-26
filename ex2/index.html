@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 2 - Pares e Ímpares</title>
+</head>
+<body>
+    <h1>Exercício 2 - Pares e Ímpares</h1>
+    <p>
+        O programa pede 10 números inteiros, calcula e mostra a quantidade de números pares e ímpares.
+    </p>
+
+    <button onclick="verificarNumeros()">Executar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function verificarNumeros() {
+            let pares = 0;
+            let impares = 0;
+
+            for (let i = 1; i <= 10; i++) {
+                let numero = parseInt(prompt("Digite o " + i + "º número inteiro:"));
+                if (!isNaN(numero)) {
+                    if (numero % 2 === 0) {
+                        pares++;
+                    } else {
+                        impares++;
+                    }
+                } else {
+                    alert("Valor inválido! Digite um número inteiro.");
+                    i--; // repete a rodada se o usuário digitou errado
+                }
+            }
+
+            document.getElementById("resultado").innerHTML =
+                "Quantidade de números pares: <strong>" + pares + "</strong><br>" +
+                "Quantidade de números ímpares: <strong>" + impares + "</strong>";
+        }
+    </script>
+</body>
+</html>c

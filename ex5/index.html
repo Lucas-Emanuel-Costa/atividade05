@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 5 - Área e Perímetro do Círculo</title>
+</head>
+<body>
+    <h1>Exercício 5 - Área e Perímetro do Círculo</h1>
+    <p>
+        O programa pede o valor do raio de um círculo, calcula e mostra sua <strong>área</strong> e <strong>perímetro</strong>.
+    </p>
+
+    <button onclick="calcularCirculo()">Calcular</button>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularCirculo() {
+            let raio = parseFloat(prompt("Digite o raio do círculo:"));
+            
+            if (isNaN(raio) || raio <= 0) {
+                alert("Digite um valor válido para o raio.");
+                return;
+            }
+
+            let area = Math.PI * Math.pow(raio, 2);
+            let perimetro = 2 * Math.PI * raio;
+
+            document.getElementById("resultado").innerHTML =
+                "Raio: <strong>" + raio + "</strong><br>" +
+                "Área: <strong>" + area.toFixed(2) + "</strong><br>" +
+                "Perímetro: <strong>" + perimetro.toFixed(2) + "</strong>";
+        }
+    </script>
+</body>
+</html>

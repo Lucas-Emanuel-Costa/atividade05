@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 4 - Salário com Aumentos</title>
+</head>
+<body>
+    <h1>Exercício 4 - Salário com Aumentos</h1>
+    <p>
+        Um funcionário foi contratado em 1995 com salário inicial de R$ 1.000,00.  
+        Em 1996, recebeu aumento de 1,5%.  
+        A partir de 1997, os aumentos foram sempre o dobro do percentual do ano anterior.  
+        O programa calcula o salário atual.
+    </p>
+
+    <button onclick="calcularFixo()">Versão 1 (Salário fixo)</button>
+    <button onclick="calcularPrompt()">Versão 2 (Salário informado pelo usuário)</button>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularFixo() {
+            let salario = 1000; // salário inicial fixo
+            let aumento = 0.015; // 1,5% em 1996
+            let ano = 1996;
+            const anoAtual = new Date().getFullYear();
+
+            while (ano <= anoAtual) {
+                salario += salario * aumento;
+                aumento *= 2; // dobra a partir de 1997
+                ano++;
+            }
+
+            document.getElementById("resultado").innerHTML =
+                "Salário atual (fixo): <strong>R$ " + salario.toFixed(2) + "</strong>";
+        }
+
+        function calcularPrompt() {
+            let salario = parseFloat(prompt("Digite o salário inicial do funcionário (em R$):"));
+            if (isNaN(salario) || salario <= 0) {
+                alert("Digite um valor válido para o salário inicial.");
+                return;
+            }
+
+            let aumento = 0.015;
+            let ano = 1996;
+            const anoAtual = new Date().getFullYear();
+
+            while (ano <= anoAtual) {
+                salario += salario * aumento;
+                aumento *= 2;
+                ano++;
+            }
+
+            document.getElementById("resultado").innerHTML =
+                "Salário atual (informado): <strong>R$ " + salario.toFixed(2) + "</strong>";
+        }
+    </script>
+</body>
+</html>
