@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 6 Retorno de Investimento</title>
+</head>
+<body>
+    <h1>Exercício 6 - Retorno de Investimento</h1>
+    <p>
+        O programa calcula o <strong>montante final</strong> de um investimento com base no 
+        <em>capital inicial</em>, <em>taxa de juros mensal</em> e <em>tempo em meses</em>, 
+        fornecidos pelo usuário.
+    </p>
+
+    <button onclick="calcularInvestimento()">Calcular</button>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularInvestimento() {
+            let capital = parseFloat(prompt("Digite o capital inicial (R$):"));
+            let taxa = parseFloat(prompt("Digite a taxa de juros mensal (%):"));
+            let tempo = parseInt(prompt("Digite o tempo do investimento (meses):"));
+
+            if (isNaN(capital) || capital <= 0 || isNaN(taxa) || taxa < 0 || isNaN(tempo) || tempo <= 0) {
+                alert("Digite valores válidos para capital, taxa e tempo.");
+                return;
+            }
+
+            let i = taxa / 100;
+            let montante = capital * Math.pow((1 + i), tempo);
+
+            document.getElementById("resultado").innerHTML =
+                "Capital inicial: <strong>R$ " + capital.toFixed(2) + "</strong><br>" +
+                "Taxa de juros: <strong>" + taxa.toFixed(2) + "% ao mês</strong><br>" +
+                "Tempo: <strong>" + tempo + " meses</strong><br>" +
+                "Montante final: <strong>R$ " + montante.toFixed(2) + "</strong>";
+        }
+    </script>
+</body>
+</html>
